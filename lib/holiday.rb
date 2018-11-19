@@ -63,7 +63,7 @@ def all_winter_holiday_supplies(holiday_hash)
 
   holiday_hash.each do |key, value|
     if season == :winter
-      data.each do |holiday, supplies|
+      value.each do |holiday, supplies|
         winter_supplies.concat(supplies)
       end
     end
