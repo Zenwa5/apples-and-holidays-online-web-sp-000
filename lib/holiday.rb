@@ -70,7 +70,7 @@ def all_winter_holiday_supplies(holiday_hash)
   winter_supplies
 end
  def all_supplies_in_holidays(holiday_hash)
-@@ -53,18 +94,43 @@ def all_supplies_in_holidays(holiday_hash)
+
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
