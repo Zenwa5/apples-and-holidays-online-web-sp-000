@@ -70,40 +70,38 @@ def all_winter_holiday_supplies(holiday_hash)
   end
   winter_supplies
 end
-liday_hash.each do |season, data|
-    puts "#{season.to_s.capitalize}:"
-    data.each do |holiday, supplies|
-        message = "  "
-        holiday_words = holiday.to_s.split("_")
-        message << format_words_in_array(holiday_words)
-        message << ": "
-        supplies.each do |supply|
-          if supply.downcase == "bbq"
-            message << supply.upcase
-          else
-            message << format_words_in_array(supply.split(" "))
-            message << ", " if supplies.index(supply) != supplies.size - 1
+
+def all_supplies_in_holidays(holiday_hash)
+  # iterate through holiday_hash and print items such that your readout resembles:
+  # Winter:
+  #   Christmas: Lights, Wreath
+  #   New Years: Party Hats
+  # Summer:
+  #   Fourth Of July: Fireworks, BBQ
+  # etc.
+
+
+  holiday_hash.each do |season, data|
+      puts "#{season.to_s.capitalize}:"
+      data.each do |holiday, supplies|
+          message = "  "
+          holiday_words = holiday.to_s.split("_")
+          message << format_words_in_array(holiday_words)
+          message << ": "
+          supplies.each do |supply|
+            if supply.downcase == "bbq"
+              message << supply.upcase
+            else
+              message << format_words_in_array(supply.split(" "))
+              message << ", " if supplies.index(supply) != supplies.size - 1
+            end
           end
-        end
-        puts message
+          puts message
+      end
     end
   end
-
- def format_words_in_array(words)
-  words.collect! do |word|
-    "#{word.capitalize}"
-  end.join(" ")
-end
- def all_holidays_with_bbq(holiday_hash)
+def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-   holidays_with_bbq = []
-  holiday_hash.each do |season, data|
-    data.each do |holiday, supplies|
-         if supplies.include?("Bbq") || supplies.include?("bbq") || supplies.include?("BBQ")
-           holidays_with_bbq << holiday
-         end
-    end
-  end
-   holidays_with_bbq
+
 end
