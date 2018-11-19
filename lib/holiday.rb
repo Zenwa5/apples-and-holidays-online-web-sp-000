@@ -88,7 +88,7 @@ liday_hash.each do |season, data|
         puts message
     end
   end
-end
+
  def format_words_in_array(words)
   words.collect! do |word|
     "#{word.capitalize}"
